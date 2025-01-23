@@ -48,6 +48,13 @@ abstract class Command extends SymfonyCommand
         return $this->input->getArgument($name);
     }
 
+    public function ask($question): false|string
+    {
+        $this->output->writeln('');
+
+        return readline($question);
+    }
+
     public function info($message): void
     {
         $this->output->writeln("<info>$message</info>");

@@ -13,7 +13,8 @@
     }
   ],
   "require": {
-    "symfony/console": "^7.2"
+    "symfony/console": "^7.2",
+    "ext-readline": "*"
   },
   "require-dev": {
     "nunomaduro/collision": "^8.6"

@@ -3,6 +3,7 @@
 
 use Rovshen\Console\Commands\InspireCommand;
 use Rovshen\Console\Commands\MakeCommand;
+use Rovshen\Console\Commands\TinkerCommand;
 
 const BASE_PATH = __DIR__ . DIRECTORY_SEPARATOR;
 
@@ -27,7 +28,8 @@ $application->setVersion('12.0.0');
 
 $commands = [
     new InspireCommand(),
-    new MakeCommand()
+    new MakeCommand(),
+    new TinkerCommand()
 ];
 
 $application->addCommands($commands);
