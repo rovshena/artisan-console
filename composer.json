@@ -1,0 +1,21 @@
+{
+  "name": "rovshen/console",
+  "version": "1.0.0",
+  "autoload": {
+    "psr-4": {
+      "Rovshen\\Console\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Rovshen Annayev",
+      "email": "rovshen.dev@gmail.com"
+    }
+  ],
+  "require": {
+    "symfony/console": "^7.2"
+  },
+  "require-dev": {
+    "nunomaduro/collision": "^8.6"
+  }
+}
