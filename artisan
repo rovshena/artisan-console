@@ -1,11 +1,18 @@
 #!/usr/bin/env php
 <?php
 
+use Rovshen\Console\Commands\DownCommand;
 use Rovshen\Console\Commands\InspireCommand;
 use Rovshen\Console\Commands\MakeCommand;
 use Rovshen\Console\Commands\TinkerCommand;
 
 const BASE_PATH = __DIR__ . DIRECTORY_SEPARATOR;
+
+//if (file_exists(BASE_PATH . 'down')) {
+//    echo 'Application is under maintenance mode.';
+//
+//    exit(1);
+//}
 
 /** @noinspection PhpNoReturnAttributeCanBeAddedInspection */
 function dd(...$args): void
@@ -29,7 +36,8 @@ $application->setVersion('12.0.0');
 $commands = [
     new InspireCommand(),
     new MakeCommand(),
-    new TinkerCommand()
+    new TinkerCommand(),
+    new DownCommand()
 ];
 
 $application->addCommands($commands);
@@ -38,4 +46,6 @@ try {
     $application->run();
 } catch (Exception $e) {
     echo $e->getMessage();
+
+    exit(1);
 }
