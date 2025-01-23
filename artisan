@@ -1,6 +1,8 @@
 #!/usr/bin/env php
 <?php
 
+use Rovshen\Console\Commands\InspireCommand;
+
 const BASE_PATH = __DIR__ . DIRECTORY_SEPARATOR;
 
 /** @noinspection PhpNoReturnAttributeCanBeAddedInspection */
@@ -22,7 +24,9 @@ $application = new Symfony\Component\Console\Application();
 $application->setName('Laravel Framework');
 $application->setVersion('12.0.0');
 
-$commands = [];
+$commands = [
+    new InspireCommand()
+];
 
 $application->addCommands($commands);
 
