@@ -2,6 +2,7 @@
 <?php
 
 use Rovshen\Console\Commands\InspireCommand;
+use Rovshen\Console\Commands\MakeCommand;
 
 const BASE_PATH = __DIR__ . DIRECTORY_SEPARATOR;
 
@@ -25,7 +26,8 @@ $application->setName('Laravel Framework');
 $application->setVersion('12.0.0');
 
 $commands = [
-    new InspireCommand()
+    new InspireCommand(),
+    new MakeCommand()
 ];
 
 $application->addCommands($commands);

@@ -3,7 +3,8 @@
 namespace Rovshen\Console;
 
 use Symfony\Component\Console\Command\Command as SymfonyCommand;
-use Symfony\Component\Console\Output\ConsoleOutput;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 abstract class Command extends SymfonyCommand
@@ -12,7 +13,11 @@ abstract class Command extends SymfonyCommand
 
     protected string $description;
 
+    protected array $arguments = [];
+
     protected OutputInterface $output;
+
+    protected InputInterface $input;
 
     public function __construct()
     {
@@ -22,9 +27,25 @@ abstract class Command extends SymfonyCommand
             $this->setDescription($this->description);
         }
 
-        $this->output = new ConsoleOutput();
+        $this->setCode(function (InputInterface $input, OutputInterface $output) {
+            $this->output = $output;
 
-        $this->setCode(fn() => $this->handle());
+            $this->input = $input;
+
+            $this->handle();
+        });
+    }
+
+    protected function configure(): void
+    {
+        foreach ($this->arguments as $name) {
+            $this->addArgument($name, InputArgument::REQUIRED);
+        }
+    }
+
+    public function argument($name): string
+    {
+        return $this->input->getArgument($name);
     }
 
     public function info($message): void

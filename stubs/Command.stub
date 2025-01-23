@@ -1,0 +1,17 @@
+<?php
+
+namespace Rovshen\Console\Commands;
+
+use Rovshen\Console\Command;
+
+class {{ $name }} extends Command
+{
+    protected string $name = 'command:name';
+
+    protected string $description = 'The command description';
+
+    public function handle(): void
+    {
+        // ...
+    }
+}
