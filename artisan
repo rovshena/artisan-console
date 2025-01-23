@@ -31,7 +31,7 @@ $application->setVersion('12.0.0');
 $commands = array_map(function ($filename) {
     $class = basename($filename, '.php');
 
-    $class = "Rovshen\\Console\\Commands\\$class";
+    $class = "Rovshen\\LaravelArtisanConsole\\Commands\\$class";
 
     return new $class;
 }, glob(__DIR__ . '/src/Commands/*'));

@@ -1,6 +1,6 @@
 <?php
 
-namespace Rovshen\Console;
+namespace Rovshen\LaravelArtisanConsole;
 
 use Symfony\Component\Console\Command\Command as SymfonyCommand;
 use Symfony\Component\Console\Input\InputArgument;
